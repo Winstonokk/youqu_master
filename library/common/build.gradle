@@ -1,0 +1,94 @@
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+        }
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
+    }
+}
+
+
+ext {
+    isLibrary = true
+    pomArtifactId = "Common"
+    pomDescription = "Common of android picker"
+}
+
+dependencies {
+    compileOnly fileTree(include: ['*.jar'], dir: 'libs')
+    api files('libs/Parse-1.9.4.jar')
+    api files('libs/commons-codec-1.6.jar')
+    api files('libs/alipaySdk-20170922.jar')
+    //support
+    api(rootProject.ext.dependencies["support-v4"]) {
+        exclude module: 'support-annotations'
+    }
+    api(rootProject.ext.dependencies["appcompat-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    api(rootProject.ext.dependencies["recyclerview-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    api(rootProject.ext.dependencies["cardview-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    compileOnly rootProject.ext.dependencies["design"]
+    api rootProject.ext.dependencies["annotations"]
+
+    //view
+    api(rootProject.ext.dependencies["butterknife"]) {
+        exclude module: 'support-annotations'
+        exclude module: 'support-compat'
+    }
+    api rootProject.ext.dependencies["flycoTabLayout"]//菜单栏
+    api rootProject.ext.dependencies["barlibrary"]//状态栏
+    api rootProject.ext.dependencies["photoview"]//图片缩放框架
+
+    //rx
+    api rootProject.ext.dependencies["rxjava"]
+    api(rootProject.ext.dependencies["rxandroid"]) {
+        exclude module: 'rxjava'
+    }
+
+    //network
+    api(rootProject.ext.dependencies["retrofit"]) {
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+    }
+
+    api rootProject.ext.dependencies["retrofit-converter-gson"]
+    api rootProject.ext.dependencies["retrofit-adapter-rxjava"]
+
+    //tool
+    api rootProject.ext.dependencies["logging"]//log
+    api rootProject.ext.dependencies["logger"]//打印日志
+    api rootProject.ext.dependencies["multidex"]//分包
+    api rootProject.ext.dependencies["glide"]//显示图片框架
+    api rootProject.ext.dependencies["butterknife"]//view注解
+    api rootProject.ext.dependencies["umeng"]//友盟统计
+    api rootProject.ext.dependencies["dialog"]//dialog
+    api rootProject.ext.dependencies["greendao"]//数据库
+    api rootProject.ext.dependencies["utilcode"]//工具类开源库
+    api rootProject.ext.dependencies["numberprogressbar"]//数字进度条
+}
+
+

@@ -1,0 +1,8 @@
+include ':app'
+include ':library:common'
+include ':library:irecyclerview'
+include ':library:photoPicker'
+include ':library:dkplayer-java'
+include ':library:dkplayer-ui'
+include ':library:dkplayer-lib'
+include ':library:provider7'

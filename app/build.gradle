@@ -1,0 +1,113 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    defaultConfig {
+        applicationId "com.barnettwong.quyou"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+        multiDexEnabled true
+        //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
+        flavorDimensions "versionCode"
+
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a'/*,'arm64-v8a'*/
+
+        }
+    }
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "USE_CANARY", "true"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        abortOnError false
+    }
+
+    /*配置渠道*/
+    productFlavors {
+        yingyongbao {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyongbao"]
+        }
+        wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        }
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //tools
+    implementation rootProject.ext.dependencies["androideventbus"]
+    //view
+    annotationProcessor(rootProject.ext.dependencies["butterknife-compiler"]) {
+        exclude module: 'support-annotations'
+    }
+
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
+
+    implementation 'com.daimajia.numberprogressbar:library:1.4@aar'
+    //新增库
+    implementation project(':library:common')//图片选择
+    implementation project(':library:photoPicker')//图片选择
+    implementation project(':library:provider7')//android7.0
+    //万能适配器和recyclerview
+    implementation project(':library:irecyclerview')
+    //视频播放
+    implementation 'com.github.DevlinChiu:FloatWindowPermission:1.1'
+    implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.25'
+    implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'
+    implementation 'com.github.ctiao:ndkbitmap-armv5:0.9.21'
+    implementation 'com.github.ctiao:ndkbitmap-x86:0.9.21'
+    implementation 'com.github.rubensousa:gravitysnaphelper:1.5'
+    implementation 'com.google.android.exoplayer:exoplayer:2.8.2'
+    implementation 'com.google.android.exoplayer:extension-rtmp:2.8.2'
+    implementation project(':library:dkplayer-java')
+    implementation project(':library:dkplayer-ui')
+    implementation project(':library:dkplayer-lib')
+
+    //图片选择
+    implementation project(':library:photoPicker')
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+    //刷新加载
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
+    //分享dialog
+    implementation 'me.shaohui:bottomdialog:1.1.9'
+    //全局登录，退出界面动画
+    implementation 'com.github.XunMengWinter:CircularAnim:0.3.3'
+    implementation 'site.gemus:openingstartanimation:1.0.0' //启动页动画
+}

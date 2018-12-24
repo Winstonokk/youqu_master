@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.dueeeke'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    api 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+    api 'com.danikula:videocache:2.7.0'
+}
