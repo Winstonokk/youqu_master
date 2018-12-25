@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+    }
+
+    buildTypes {
+        debug {
+            defaultPublishConfig "debug"
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    dependencies {
+        implementation(rootProject.ext.dependencies["appcompat-v7"]) {
+            exclude module: 'support-annotations'
+        }
+        compileOnly rootProject.ext.dependencies["design"]
+    }
+
+}
