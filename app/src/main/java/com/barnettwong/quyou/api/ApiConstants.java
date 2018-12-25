@@ -18,9 +18,9 @@ package com.barnettwong.quyou.api;
 
 public class ApiConstants {
     /**
-     * 公司项目网络请求基本地址
+     * 豆瓣读书host
      */
-    public static final String YINGPIN_HOST="https://api-m.mtime.cn/";
+    public static final String DOUBAN_HOST = "https://api.douban.com/v2/";
 
 
     /**
@@ -32,8 +32,8 @@ public class ApiConstants {
     public static String getHost(int hostType) {
         String host;
         switch (hostType) {
-            case HostType.YINGPIN_TV:
-                host = YINGPIN_HOST;
+            case HostType.NEWS_SERVER:
+                host = DOUBAN_HOST;
                 break;
             default:
                 host = "";

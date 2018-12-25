@@ -6,5 +6,7 @@ package com.barnettwong.quyou.app;
 public class AppConstant {
     public static final String IS_FIRST_ENTER="is_first_enter";//是否第一次进入应用
 
+    public static final String HOME_CURRENT_TAB_POSITION="home_current_tab_position";//tab位置
+
 
 }

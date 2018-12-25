@@ -24,8 +24,8 @@ public class HostType {
     public static final int TYPE_COUNT = 1;
 
     /**
-     * 影评的host
+     * 新闻的host
      */
-    public static final int YINGPIN_TV = 1;
+    public static final int NEWS_SERVER = 1;
 
 }
