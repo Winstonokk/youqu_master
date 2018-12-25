@@ -97,9 +97,13 @@ dependencies {
     implementation project(':library:dkplayer-java')
     implementation project(':library:dkplayer-ui')
     implementation project(':library:dkplayer-lib')
-
+    //启动页动画
+    implementation project(':library:openingstartanimation')
     //图片选择
     implementation project(':library:photoPicker')
+    //引导页
+    implementation project(':library:material-intro-screen')
+
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
     //刷新加载
@@ -109,5 +113,4 @@ dependencies {
     implementation 'me.shaohui:bottomdialog:1.1.9'
     //全局登录，退出界面动画
     implementation 'com.github.XunMengWinter:CircularAnim:0.3.3'
-    implementation 'site.gemus:openingstartanimation:1.0.0' //启动页动画
 }

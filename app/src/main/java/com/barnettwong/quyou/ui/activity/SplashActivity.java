@@ -1,11 +1,14 @@
 package com.barnettwong.quyou.ui.activity;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.Preference;
+import android.support.v4.app.TaskStackBuilder;
 
 import com.barnettwong.quyou.R;
 import com.barnettwong.quyou.app.AppConstant;
+import com.barnettwong.quyou.ui.activity.guide.IntroActivity;
+import com.blankj.utilcode.util.SPUtils;
 import com.jaydenxiao.common.base.BaseActivity;
 
 import site.gemus.openingstartanimation.LineDrawStrategy;
@@ -20,8 +23,17 @@ public class SplashActivity extends BaseActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            startActivity(MainActivity.class);//暂时不做引导页
-            finish();
+            boolean isFirst=SPUtils.getInstance().getBoolean(AppConstant.IS_FIRST_ENTER,true);
+            if(isFirst){
+                TaskStackBuilder.create(SplashActivity.this)
+                        .addNextIntentWithParentStack(new Intent(SplashActivity.this, MainActivity.class))
+                        .addNextIntent(new Intent(SplashActivity.this, IntroActivity.class))
+                        .startActivities();
+                finish();
+            }else{
+                startActivity(MainActivity.class);
+                finish();
+            }
         }
     };
 

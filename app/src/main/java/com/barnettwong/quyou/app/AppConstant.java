@@ -4,10 +4,7 @@ package com.barnettwong.quyou.app;
  * Created by wang on 2018/8/8.
  **/
 public class AppConstant {
-    public static final String HOME_CURRENT_TAB_POSITION="HOME_CURRENT_TAB_POSITION";
-    public static String ZONE_PUBLISH_ADD = "ZONE_PUBLISH_ADD";//发布说说
-    /* 视频*/
-    public static final String VIDEO_TYPE = "VIDEO_TYPE";
+    public static final String IS_FIRST_ENTER="is_first_enter";//是否第一次进入应用
 
 
 }
