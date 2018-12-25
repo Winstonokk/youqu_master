@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--图书类型-->
+    <string-array name="book_type_names">
+        <item>新书</item>
+        <item>热门</item>
+        <item>推荐</item>
+    </string-array>
+
+</resources>

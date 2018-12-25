@@ -7,4 +7,22 @@
     <string name="lorem_ipsum">声明 \n\n本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。 您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。\n\n信息使用\n(a)本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。\n
 (b) 本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。 \n
 (c) 为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。</string>
+
+    <string name="more_brief">更多评论</string>
+    <string name="click2collapse">点击收回</string>
+    <string name="click2expand">点击展开</string>
+    <string name="no_brief">暂无简介。</string>
+    <string name="comment_num">人点评</string>
+    <string name="comment">评论</string>
+    <string name="guess_you_like">猜你喜欢</string>
+    <string name="book_brief">简介</string>
+    <string name="your_friend">你的好友</string>
+    <string name="share_book_1">给你分享了一本书《</string>
+    <string name="share_book_2">》,吼吼！</string>
+    <string name="loading">加载中...</string>
+    <string name="share_dialog_title">分享</string>
+    <string name="action_share">分享</string>
+    <string name="action_sort">排序</string>
+    <string name="comment_of_book">--评论</string>
+
 </resources>

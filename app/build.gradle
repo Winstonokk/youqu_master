@@ -113,4 +113,9 @@ dependencies {
     implementation 'me.shaohui:bottomdialog:1.1.9'
     //全局登录，退出界面动画
     implementation 'com.github.XunMengWinter:CircularAnim:0.3.3'
+    //expandtextview
+    implementation project(':library:expandtextview')
+//    implementation ('com.hymane.expandtextview:library:1.0.4'){
+//        exclude module: 'appcompat-v7'
+//    }
 }

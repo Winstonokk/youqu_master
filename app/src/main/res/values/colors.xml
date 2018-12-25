@@ -16,5 +16,7 @@
     <color name="custom_slide_background">#3F51B5</color>
     <color name="custom_slide_buttons">#1A237E</color>
     <!--引导页 end-->
+
+    <color name="book_title_mask">#80000000</color>
     
 </resources>
