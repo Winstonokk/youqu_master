@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF000000</color>
+    <!--<color name="colorPrimary">#FF000000</color>
     <color name="colorPrimaryDark">#FF000000</color>
-    <color name="colorAccent">#FF000000</color>
+    <color name="colorAccent">#FF000000</color>-->
+    <!--新主题颜色-->
+    <color name="colorPrimary">#d827d7</color>
+    <color name="colorPrimaryDark">#d827d7</color>
+    <color name="colorAccent">#D81B60</color>
     <!--白天主题-->
     <color name="day_backgroup_color">#FFFFFFFF</color>
     <color name="day_one_text_color">#FF000000</color>
@@ -15,7 +19,7 @@
     <color name="night_there_text_color">#8A9599</color>
     <!-- app主色调-->
     <!--<color name="main_color">#1296db</color>-->
-    <color name="main_color">#FA7C20</color>
+    <color name="main_color">#d827d7</color>
     <color name="statusbar_color">#1C1F28</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
