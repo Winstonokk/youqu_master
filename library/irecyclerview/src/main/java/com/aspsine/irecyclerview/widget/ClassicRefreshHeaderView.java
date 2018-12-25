@@ -20,7 +20,7 @@ public class ClassicRefreshHeaderView extends RelativeLayout implements RefreshT
 
     private ImageView ivSuccess;
 
-//    private TextView tvRefresh;
+    private TextView tvRefresh;
 
     private ProgressBar progressBar;
 
@@ -45,7 +45,7 @@ public class ClassicRefreshHeaderView extends RelativeLayout implements RefreshT
 
         inflate(context, R.layout.layout_irecyclerview_classic_refresh_header_view, this);
 
-//        tvRefresh = (TextView) findViewById(R.id.tvRefresh);
+        tvRefresh = (TextView) findViewById(R.id.tvRefresh);
 
         ivArrow = (ImageView) findViewById(R.id.ivArrow);
 
@@ -77,9 +77,9 @@ public class ClassicRefreshHeaderView extends RelativeLayout implements RefreshT
                     rotated = false;
                 }
 
-//                tvRefresh.setText("SWIPE TO REFRESH");
+                tvRefresh.setText("下拉刷新");
             } else {
-//                tvRefresh.setText("RELEASE TO REFRESH");
+                tvRefresh.setText("放开立即刷新");
                 if (!rotated) {
                     ivArrow.clearAnimation();
                     ivArrow.startAnimation(rotateUp);
@@ -95,7 +95,7 @@ public class ClassicRefreshHeaderView extends RelativeLayout implements RefreshT
         ivArrow.clearAnimation();
         ivArrow.setVisibility(GONE);
         progressBar.setVisibility(VISIBLE);
-//        tvRefresh.setText("REFRESHING");
+        tvRefresh.setText("正在加载...");
     }
 
     @Override
@@ -110,7 +110,7 @@ public class ClassicRefreshHeaderView extends RelativeLayout implements RefreshT
         ivArrow.clearAnimation();
         ivArrow.setVisibility(GONE);
         progressBar.setVisibility(GONE);
-//        tvRefresh.setText("COMPLETE");
+        tvRefresh.setText("完成");
     }
 
     @Override
