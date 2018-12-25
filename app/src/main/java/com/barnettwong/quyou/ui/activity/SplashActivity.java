@@ -52,6 +52,7 @@ public class SplashActivity extends BaseActivity {
         handler.sendEmptyMessageDelayed(0, 2000);
         OpeningStartAnimation openingStartAnimation = new OpeningStartAnimation.Builder(this)
                 .setDrawStategy(new LineDrawStrategy())
+                .setAppIcon(getResources().getDrawable(R.drawable.splash_icon))
                 .setAppStatement(getString(R.string.app_statement))
                 .setAnimationFinishTime(2000)
                 .create();
