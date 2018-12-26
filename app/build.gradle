@@ -109,12 +109,13 @@ dependencies {
     //刷新加载
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
-    //分享dialog
-    implementation 'me.shaohui:bottomdialog:1.1.9'
     //全局登录，退出界面动画
     implementation 'com.github.XunMengWinter:CircularAnim:0.3.3'
     //expandtextview
     implementation project(':library:expandtextview')
     //picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'//浮动view
+    implementation 'com.github.florent37:diagonallayout:1.0.2'
+    implementation 'com.kyleduo.switchbutton:library:2.0.0'
 }

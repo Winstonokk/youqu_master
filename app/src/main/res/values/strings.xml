@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">友趣</string>
     <string name="app_statement">在友趣，享受你的每一天</string>
+    <string name="menu_app_tip">烟花再美只是瞬间\n&#12288;&#12288;&#12288;&#12288;&#12288;情话再甜只是敷衍...</string>
+    <string name="menu_app_tip2">--友趣</string>
     <string name="str_exitApp">再按一次退出程序</string>
 
     <string name="check_to_pass">同意条款</string>
@@ -22,7 +24,6 @@
     <string name="share_book_2">》,吼吼！</string>
     <string name="loading">加载中...</string>
     <string name="share_dialog_title">分享</string>
-    <string name="action_share">分享</string>
     <string name="action_sort">排序</string>
     <string name="comment_of_book">--评论</string>
 
@@ -30,6 +31,28 @@
     <string name="transition_photos">transition_animation_news_photos</string>
 
     <string name="video_play_times">%1$s次播放</string>
+
+    <!--我的-->
+    <string name="action_share">分享</string>
+    <string name="str_about_us">关于</string>
+    <string name="str_mode">夜间模式</string>
+
+    <string name="large_text">
+        友趣：一款集合了热点书籍分类以及评论、妹子图片、精选视频等信息的Material Design风格的开源应用。友趣采用MVP模式，基于RxJava+Retrofit2+Glide+ijkplayer等优秀的第三方开源库开发。\n\n
+
+        热点书籍模块数据和视频模块数据来源于网易等第三方非正规渠道，图片模块数据来源于干货集中营。（如有侵权，请联系马上删除。）\n\n
+
+        项目源码：https://github.com/wangfeng19930909/youqu_master.git\n\n
+
+        主要参考的项目：\n\n
+        LoveDouDou 地址：https://github.com/wangfeng19930909/LoveDouDou.git\n\n
+
+        主要用到的开源库：RxJava、Retrofit2、ijkplayer、Butterknife、PhotoView、Glide、Picasso、kenburnsview、diagonallayout…\n\n
+
+        作者： BarnettWong\n\n
+        GitHub: https://github.com/wangfeng19930909\n\n
+        邮箱：wangfengkxhp@163.com\n\n
+    </string>
 
 
 </resources>

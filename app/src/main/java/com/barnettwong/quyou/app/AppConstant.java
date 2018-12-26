@@ -13,5 +13,10 @@ public class AppConstant {
 
     public static final String BOOK_LIST_TO_TOP="book_list_to_top";//回到顶部
 
+    //分享
+    public static String QQ_ID = "XXXXXX";
+    public static String WX_ID = "XXXXXX";
+    public static String WEIBO_ID = "XXXXXX";
+
 
 }
