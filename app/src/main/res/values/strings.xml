@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">友趣</string>
     <string name="app_statement">在友趣，享受你的每一天</string>
+    <string name="str_exitApp">再按一次退出程序</string>
 
     <string name="check_to_pass">同意条款</string>
     <string name="error_message">请先同意app条款声明</string>
@@ -27,5 +28,8 @@
 
     <!-- 共享过度动画 -->
     <string name="transition_photos">transition_animation_news_photos</string>
+
+    <string name="video_play_times">%1$s次播放</string>
+
 
 </resources>

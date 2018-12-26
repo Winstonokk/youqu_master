@@ -89,7 +89,11 @@ public class Api {
                 builder.header("timestamp", time + "");
                 Request.Builder requestBuilder =
                         builder.method(originalRequest.method(), originalRequest.body());
-                Request request = requestBuilder.build();
+                //设置代理
+                Request request = requestBuilder.removeHeader("User-Agent")
+                        .addHeader("User-Agent","Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:0.9.4)")
+                        .build() ;
+
                 return chain.proceed(request);
             }
         };

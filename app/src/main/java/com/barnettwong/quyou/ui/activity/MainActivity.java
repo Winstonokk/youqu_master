@@ -6,6 +6,8 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.ViewGroup;
@@ -17,7 +19,9 @@ import com.barnettwong.quyou.ui.fragment.GirlFragment;
 import com.barnettwong.quyou.ui.fragment.MineFragment;
 import com.barnettwong.quyou.ui.fragment.MovieFragment;
 import com.barnettwong.quyou.ui.fragment.NewsFragment;
+import com.barnettwong.quyou.util.UiUtils;
 import com.blankj.utilcode.util.SPUtils;
+import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
@@ -48,6 +52,19 @@ public class MainActivity extends BaseActivity {
     private MineFragment mMineFragment;
     private static int tabLayoutHeight;
 
+    private VideoViewManager mVideoViewManager;
+    //是否退出
+    private static boolean isExit;
+
+    //处理退出发出的消息
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
@@ -61,6 +78,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView() {
         SPUtils.getInstance().put(AppConstant.IS_FIRST_ENTER,false);
+        mVideoViewManager = VideoViewManager.instance();
         //初始化菜单
         initTab();
     }
@@ -87,6 +105,7 @@ public class MainActivity extends BaseActivity {
         tabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
+                mVideoViewManager.stopPlayback();//切换时直接停止播放
                 SwitchTo(position);
             }
             @Override
@@ -127,6 +146,7 @@ public class MainActivity extends BaseActivity {
      */
     private void SwitchTo(int position) {
         LogUtils.logd("主页菜单position" + position);
+        mVideoViewManager.stopPlayback();//切换时直接停止播放
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (position) {
             //首页
@@ -166,48 +186,38 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /**
-     * 菜单显示隐藏动画
-     * @param showOrHide
-     */
-    private void startAnimation(boolean showOrHide){
-        final ViewGroup.LayoutParams layoutParams = tabLayout.getLayoutParams();
-        ValueAnimator valueAnimator;
-        ObjectAnimator alpha;
-        if(!showOrHide){
-            valueAnimator = ValueAnimator.ofInt(tabLayoutHeight, 0);
-            alpha = ObjectAnimator.ofFloat(tabLayout, "alpha", 1, 0);
-        }else{
-            valueAnimator = ValueAnimator.ofInt(0, tabLayoutHeight);
-            alpha = ObjectAnimator.ofFloat(tabLayout, "alpha", 0, 1);
-        }
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                layoutParams.height= (int) valueAnimator.getAnimatedValue();
-                tabLayout.setLayoutParams(layoutParams);
-            }
-        });
-        AnimatorSet animatorSet=new AnimatorSet();
-        animatorSet.setDuration(500);
-        animatorSet.playTogether(valueAnimator,alpha);
-        animatorSet.start();
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mVideoViewManager.releaseVideoPlayer();
     }
 
-    /**
-     * 监听返回键
-     *
-     * @param keyCode
-     * @param event
-     * @return
-     */
+    @Override
+    public void onBackPressed() {
+        if (!mVideoViewManager.onBackPressed()){
+            super.onBackPressed();
+        }
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            moveTaskToBack(false);
-            return true;
+            //如果isExit标记为false，提示用户再次按键
+            if (!isExit) {
+                isExit = true;
+                UiUtils.makeText(this, getString(R.string.str_exitApp));
+                //如果用户没有在3秒内再次按返回键的话，就发送消息标记用户为不退出状态
+                mHandler.sendEmptyMessageDelayed(0, 3000);
+            }
+            //如果isExit标记为true，退出程序
+            else {
+                //退出程序
+                finish();
+                System.exit(0);
+            }
         }
-        return super.onKeyDown(keyCode, event);
+        return false;
     }
 
     @Override

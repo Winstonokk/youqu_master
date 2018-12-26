@@ -33,7 +33,13 @@
             android:name=".ui.activity.guide.IntroActivity"
             android:theme="@style/Theme.Intro" />
 
-        <activity android:name=".ui.activity.MainActivity"/>
+        <activity android:name=".ui.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+
         <activity android:name=".ui.activity.BookDetailActivity"/>
 
         <!--友盟统计配置Appkey与Channel-->

@@ -2,6 +2,7 @@ package com.barnettwong.quyou.api;
 
 import com.barnettwong.quyou.bean.book.BookListData;
 import com.barnettwong.quyou.bean.girl.GirlData;
+import com.barnettwong.quyou.bean.video.VideoData;
 
 import java.util.List;
 import java.util.Map;
@@ -25,4 +26,10 @@ public interface ApiService {
             @Header("Cache-Control") String cacheControl,
             @Path("size") int size,
             @Path("page") int page);//美女
+
+    @GET("nc/video/list/{type}/n/{startPage}-10.html")
+    Observable<Map<String, List<VideoData>>> getVideoList(
+            @Header("Cache-Control") String cacheControl,
+            @Path("type") String type,
+            @Path("startPage") int startPage);//视频
 }

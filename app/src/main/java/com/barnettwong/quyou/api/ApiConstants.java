@@ -23,10 +23,16 @@ public class ApiConstants {
     public static final String DOUBAN_HOST = "https://api.douban.com/v2/";
 
     /**
-     * 新浪图片新闻
+     * gank图片
      * http://gank.io/api/data/福利/{size}/{page}
      */
     public static final String SINA_PHOTO_HOST = "http://gank.io/api/";
+
+    /**
+     * 新浪视频
+     * http://c.3g.163.com/nc/video/list/VAP4BGTVD/n/10-10.html
+     */
+    public static final String NETEAST_HOST = "http://c.3g.163.com/";
 
 
     /**
@@ -43,6 +49,9 @@ public class ApiConstants {
                 break;
             case HostType.GANK_GIRL_PHOTO:
                 host = SINA_PHOTO_HOST;
+                break;
+            case HostType.SINA_VIDEO:
+                host = NETEAST_HOST;
                 break;
             default:
                 host = "";

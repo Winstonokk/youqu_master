@@ -21,7 +21,7 @@ public class HostType {
     /**
      * 多少种Host类型
      */
-    public static final int TYPE_COUNT = 2;
+    public static final int TYPE_COUNT = 3;
 
     /**
      * 新闻的host
@@ -32,5 +32,10 @@ public class HostType {
      * 新浪图片的host
      */
     public static final int GANK_GIRL_PHOTO = 2;
+
+    /**
+     * 新浪视频的host
+     */
+    public static final int SINA_VIDEO = 3;
 
 }

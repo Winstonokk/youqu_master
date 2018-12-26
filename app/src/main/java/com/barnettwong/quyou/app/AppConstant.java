@@ -9,6 +9,6 @@ public class AppConstant {
     public static final String HOME_CURRENT_TAB_POSITION="home_current_tab_position";//tab位置
 
     public static final String BOOK_TYPE="book_type";//图书类型
-
+    public static final String VIDEO_TYPE="video_type";//图书类型
 
 }
