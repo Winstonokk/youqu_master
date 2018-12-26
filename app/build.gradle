@@ -118,4 +118,6 @@ dependencies {
     implementation 'com.flaviofaria:kenburnsview:1.0.7'//浮动view
     implementation 'com.github.florent37:diagonallayout:1.0.2'
     implementation 'com.kyleduo.switchbutton:library:2.0.0'
+    //下雪效果
+    implementation 'com.github.jetradarmobile:android-snowfall:1.2.0'
 }

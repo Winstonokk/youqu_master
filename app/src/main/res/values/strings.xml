@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">友趣</string>
     <string name="app_statement">在友趣，享受你的每一天</string>
-    <string name="menu_app_tip">烟花再美只是瞬间\n&#12288;&#12288;&#12288;&#12288;&#12288;情话再甜只是敷衍...</string>
+    <string name="menu_app_tip">烟花再美只是瞬间</string>
     <string name="menu_app_tip2">--友趣</string>
+    <string name="menu_app_tip3">&#12288;&#12288;&#12288;&#12288;&#12288;情话再甜只是敷衍...</string>
     <string name="str_exitApp">再按一次退出程序</string>
 
     <string name="check_to_pass">同意条款</string>
