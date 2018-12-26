@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import com.barnettwong.quyou.R;
 import com.barnettwong.quyou.ui.activity.AboutUsActivity;
 import com.jaydenxiao.common.base.BaseFragment;
+import com.jaydenxiao.common.daynightmodeutils.ChangeModeController;
 import com.kyleduo.switchbutton.SwitchButton;
 
 import butterknife.BindView;
@@ -46,7 +47,7 @@ public class MineFragment extends BaseFragment {
         switchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                ChangeModeController.toggleThemeSetting(getActivity());
             }
         });
     }
