@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 咖枯 <kaku201313@163.com | 3772304@qq.com>
+ * Copyright (c) 2016 咖枯 <kaku201313@163.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,27 @@
  * limitations under the License.
  *
  */
-package com.barnettwong.quyou.api;
+package com.barnettwong.quyou.bean.girl;
 
-public class HostType {
+import java.util.List;
 
-    /**
-     * 多少种Host类型
-     */
-    public static final int TYPE_COUNT = 2;
+public class GirlData {
+    private boolean isError;
+    private List<PhotoGirl> results;
 
-    /**
-     * 新闻的host
-     */
-    public static final int NEWS_SERVER = 1;
+    public boolean isError() {
+        return isError;
+    }
 
-    /**
-     * 新浪图片的host
-     */
-    public static final int GANK_GIRL_PHOTO = 2;
+    public void setError(boolean error) {
+        isError = error;
+    }
 
+    public void setResults(List<PhotoGirl> results) {
+        this.results = results;
+    }
+
+    public List<PhotoGirl> getResults() {
+        return results;
+    }
 }

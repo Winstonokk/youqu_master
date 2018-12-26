@@ -22,6 +22,12 @@ public class ApiConstants {
      */
     public static final String DOUBAN_HOST = "https://api.douban.com/v2/";
 
+    /**
+     * 新浪图片新闻
+     * http://gank.io/api/data/福利/{size}/{page}
+     */
+    public static final String SINA_PHOTO_HOST = "http://gank.io/api/";
+
 
     /**
      * 获取对应的host
@@ -34,6 +40,9 @@ public class ApiConstants {
         switch (hostType) {
             case HostType.NEWS_SERVER:
                 host = DOUBAN_HOST;
+                break;
+            case HostType.GANK_GIRL_PHOTO:
+                host = SINA_PHOTO_HOST;
                 break;
             default:
                 host = "";
