@@ -1,9 +1,13 @@
 package com.barnettwong.quyou.ui.fragment;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.barnettwong.quyou.R;
 import com.barnettwong.quyou.app.AppConstant;
@@ -26,6 +30,8 @@ public class NewsFragment extends BaseFragment {
     TabLayout tabs;
     @BindView(R.id.view_pager)
     ViewPager viewPager;
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
     private BaseFragmentAdapter fragmentAdapter;
 
     @Override
@@ -50,8 +56,16 @@ public class NewsFragment extends BaseFragment {
         fragmentAdapter = new BaseFragmentAdapter(getChildFragmentManager(), mNewsFragmentList, channelNames);
         viewPager.setAdapter(fragmentAdapter);
         tabs.setupWithViewPager(viewPager);
-//        MyUtils.dynamicSetTabLayoutMode(tabs);
         setPageChangeListener();
+
+        //置顶
+        fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d827d7")));
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mRxManager.post(AppConstant.BOOK_LIST_TO_TOP, "");
+            }
+        });
     }
 
     private void setPageChangeListener() {

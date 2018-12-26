@@ -135,4 +135,12 @@ public class BookTypeFragment extends BaseFragment<BookListPresenter, BookListMo
             irc.setLoadMoreStatus(LoadMoreFooterView.Status.ERROR);
         }
     }
+
+    /**
+     * 返回顶部
+     */
+    @Override
+    public void scrolltoTop() {
+        irc.smoothScrollToPosition(0);
+    }
 }

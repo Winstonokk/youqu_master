@@ -1,14 +1,11 @@
 package com.barnettwong.quyou.mvp.presenter;
 
 import com.barnettwong.quyou.R;
-import com.barnettwong.quyou.app.AppConstant;
 import com.barnettwong.quyou.bean.video.VideoData;
 import com.barnettwong.quyou.mvp.contract.VideosListContract;
 import com.jaydenxiao.common.baserx.RxSubscriber;
 
 import java.util.List;
-
-import rx.functions.Action1;
 
 /**
  * des:

@@ -22,6 +22,9 @@ public interface BookListContract {
     interface View extends BaseView {
         void returnBookListResult(List<BookInfoBean> bookInfoBeanList);
 
+        //返回顶部
+        void scrolltoTop();
+
     }
     abstract static class Presenter extends BasePresenter<View, Model> {
 

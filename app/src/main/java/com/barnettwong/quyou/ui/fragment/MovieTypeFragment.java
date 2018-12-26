@@ -40,7 +40,7 @@ public class MovieTypeFragment extends BaseFragment<VideoListPresenter, VideosLi
     LoadingTip loadedTip;
     private CommonRecycleViewAdapter<VideoData> videoListAdapter;
 
-    private int mStartPage=0;
+    private int mStartPage = 0;
     private String mVideoType;
 
     @Override
@@ -59,12 +59,12 @@ public class MovieTypeFragment extends BaseFragment<VideoListPresenter, VideosLi
             mVideoType = getArguments().getString(AppConstant.VIDEO_TYPE);
         }
         irc.setLayoutManager(new LinearLayoutManager(getContext()));
-        videoListAdapter =new CommonRecycleViewAdapter<VideoData>(getContext(),R.layout.item_video_list) {
+        videoListAdapter = new CommonRecycleViewAdapter<VideoData>(getContext(), R.layout.item_video_list) {
             @Override
             public void convert(ViewHolderHelper helper, VideoData videoData) {
-                helper.setImageRoundUrl(R.id.iv_logo,videoData.getTopicImg());
-                helper.setText(R.id.tv_from,videoData.getTopicName());
-                helper.setText(R.id.tv_play_time,String.format(getResources().getString(R.string.video_play_times), String.valueOf(videoData.getPlayCount())));
+                helper.setImageRoundUrl(R.id.iv_logo, videoData.getTopicImg());
+                helper.setText(R.id.tv_from, videoData.getTopicName());
+                helper.setText(R.id.tv_play_time, String.format(getResources().getString(R.string.video_play_times), String.valueOf(videoData.getPlayCount())));
                 IjkVideoView gsyVideoPlayer = helper.getView(R.id.videoplayer);
                 initGsyVideoPlayer(gsyVideoPlayer, videoData);
             }
@@ -88,9 +88,9 @@ public class MovieTypeFragment extends BaseFragment<VideoListPresenter, VideosLi
             }
         });
         //数据为空才重新发起请求
-        if(videoListAdapter.getSize()<=0) {
+        if (videoListAdapter.getSize() <= 0) {
             //发起请求
-            mStartPage=0;
+            mStartPage = 0;
             mPresenter.getVideosListDataRequest(mVideoType, mStartPage);
         }
     }
@@ -99,12 +99,12 @@ public class MovieTypeFragment extends BaseFragment<VideoListPresenter, VideosLi
         StandardVideoController controller = new StandardVideoController(getContext());
         controller.showTitle();
         PlayerConfig mPlayerConfig = new PlayerConfig.Builder()
-                    .enableCache()
+                .enableCache()
                 .enableMediaCodec()
 //                .autoRotate()
                 .addToPlayerManager()//required
 //                        .savingProgress()
-                .setCustomMediaPlayer(new IjkPlayer(getContext()){
+                .setCustomMediaPlayer(new IjkPlayer(getContext()) {
                     @Override
                     public void setOptions() {
                         super.setOptions();
@@ -117,7 +117,7 @@ public class MovieTypeFragment extends BaseFragment<VideoListPresenter, VideosLi
                     }
                 })
                 .build();
-        ImageLoaderUtils.display(getContext(),controller.getThumb(),videoBean.getCover());
+        ImageLoaderUtils.display(getContext(), controller.getThumb(), videoBean.getCover());
         ijkVideoView.setPlayerConfig(mPlayerConfig);
         ijkVideoView.setUrl(videoBean.getMp4_url());
         ijkVideoView.setTitle(videoBean.getTitle());
@@ -162,8 +162,8 @@ public class MovieTypeFragment extends BaseFragment<VideoListPresenter, VideosLi
 
     @Override
     public void showLoading(String title) {
-        if( videoListAdapter.getPageBean().isRefresh()) {
-            if(videoListAdapter.getSize()<=0) {
+        if (videoListAdapter.getPageBean().isRefresh()) {
+            if (videoListAdapter.getSize() <= 0) {
                 loadedTip.setLoadingTip(LoadingTip.LoadStatus.loading);
             }
         }
@@ -176,14 +176,15 @@ public class MovieTypeFragment extends BaseFragment<VideoListPresenter, VideosLi
 
     @Override
     public void showErrorTip(String msg) {
-        if( videoListAdapter.getPageBean().isRefresh()) {
-            if(videoListAdapter.getSize()<=0) {
+        if (videoListAdapter.getPageBean().isRefresh()) {
+            if (videoListAdapter.getSize() <= 0) {
                 loadedTip.setLoadingTip(LoadingTip.LoadStatus.error);
                 loadedTip.setTips(msg);
                 irc.setRefreshing(false);
             }
-        }else{
+        } else {
             irc.setLoadMoreStatus(LoadMoreFooterView.Status.ERROR);
         }
     }
+
 }
