@@ -15,4 +15,6 @@
     <attr name="dayNightBackgroundDrawableAttr" format="string|reference"/><!--切换背景图片属性-->
 </declare-styleable>
 
+    <attr name="publishInfoBackground" format="reference|color" />
+
 </resources>
