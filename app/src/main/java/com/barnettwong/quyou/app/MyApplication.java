@@ -16,6 +16,8 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.socialize.PlatformConfig;
 
 /**
  * Created by wang on 2018/8/8.
@@ -29,6 +31,14 @@ public class MyApplication extends BaseApplication {
         //初始化logger
         LogUtils.logInit(true);
         Utils.init(this);
+        initUmeng();
+    }
+
+    private void initUmeng() {
+        UMConfigure.setLogEnabled(true);
+        UMConfigure.init(this,"5c209ad0b465f58cf0000243"
+                ,"umeng",UMConfigure.DEVICE_TYPE_PHONE,"");
+
     }
 
     static {
@@ -48,6 +58,12 @@ public class MyApplication extends BaseApplication {
                 return new ClassicsFooter(context).setSpinnerStyle(SpinnerStyle.Translate);
             }
         });
+    }
+
+    {
+        PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
+        PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
+        PlatformConfig.setQQZone("101539728", "ca2c829de068d46e4c7bc6d2f16f394f");
     }
 
 }

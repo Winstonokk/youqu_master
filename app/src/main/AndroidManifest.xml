@@ -45,11 +45,68 @@
         <activity android:name=".ui.activity.BookMoreReviewActivity"/>
         <activity android:name=".ui.activity.PhotosDetailActivity"/>
 
-        <!--友盟统计配置Appkey与Channel-->
-        <!--value的值填写你在友盟后台申请的应用Appkey-->
+       <!--友盟分享 start-->
+        <!--新浪 start-->
+        <activity
+            android:name="com.umeng.socialize.media.WBShareCallBackActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false"
+            >
+        </activity>
+        <activity android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            >
+
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:launchMode="singleTask"
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <!--新浪 end-->
+
+        <!--QQ start-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent101539728" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <!--QQ end-->
+
+        <!--微信 start-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--微信 end-->
+        <!--友盟分享 end-->
+
+     <!--   &lt;!&ndash;友盟统计配置Appkey与Channel&ndash;&gt;
+        &lt;!&ndash;value的值填写你在友盟后台申请的应用Appkey&ndash;&gt;
         <meta-data android:value="5c209ad0b465f58cf0000243" android:name="UMENG_APPKEY"/>
-        <!--value的值填写渠道名称，例如yingyongbao。这里设置动态渠道变量-->
-        <meta-data android:value="${UMENG_CHANNEL_VALUE}" android:name="UMENG_CHANNEL"/>
+        &lt;!&ndash;value的值填写渠道名称，例如yingyongbao。这里设置动态渠道变量&ndash;&gt;
+        <meta-data android:value="${UMENG_CHANNEL_VALUE}" android:name="UMENG_CHANNEL"/>-->
 
 
     </application>

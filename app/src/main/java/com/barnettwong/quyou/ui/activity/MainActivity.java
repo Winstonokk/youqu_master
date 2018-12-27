@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -28,6 +29,7 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.jaydenxiao.common.base.BaseActivity;
 import com.jaydenxiao.common.commonutils.LogUtils;
 import com.jaydenxiao.common.daynightmodeutils.ChangeModeController;
+import com.umeng.socialize.UMShareAPI;
 
 import java.util.ArrayList;
 
@@ -231,9 +233,28 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    //友盟分享  start
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * 屏幕横竖屏切换时避免出现window leak的问题(此处在fragment进行，暂不考虑)
+     */
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+//        mShareAction.close();
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        UMShareAPI.get(this).release();
         ChangeModeController.onDestory();
     }
+
+    //友盟分享 end
 }

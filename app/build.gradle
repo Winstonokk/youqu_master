@@ -45,6 +45,12 @@ android {
         }
     }
 
+    sourceSets{
+        main{
+            jniLibs.srcDirs=['libs']
+        }
+    }
+
     lintOptions {
         disable 'InvalidPackage'
         disable "ResourceType"
@@ -74,15 +80,16 @@ dependencies {
     annotationProcessor(rootProject.ext.dependencies["butterknife-compiler"]) {
         exclude module: 'support-annotations'
     }
-
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
-
     implementation 'com.daimajia.numberprogressbar:library:1.4@aar'
     //新增库
-    implementation project(':library:common')//图片选择
-    implementation project(':library:photoPicker')//图片选择
-    implementation project(':library:provider7')//android7.0
+    implementation project(':library:common')
+    //图片选择
+    implementation project(':library:photoPicker')
+    //图片选择
+    implementation project(':library:provider7')
+    //android7.0
     //万能适配器和recyclerview
     implementation project(':library:irecyclerview')
     //视频播放
@@ -103,7 +110,6 @@ dependencies {
     implementation project(':library:photoPicker')
     //引导页
     implementation project(':library:material-intro-screen')
-
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
     //刷新加载
@@ -115,7 +121,8 @@ dependencies {
     implementation project(':library:expandtextview')
     //picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'com.flaviofaria:kenburnsview:1.0.7'//浮动view
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    //浮动view
     implementation 'com.github.florent37:diagonallayout:1.0.2'
     implementation 'com.kyleduo.switchbutton:library:2.0.0'
     //下雪效果
