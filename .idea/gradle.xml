@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/library/common" />
+            <option value="$PROJECT_DIR$/library/dkplayer-java" />
+            <option value="$PROJECT_DIR$/library/dkplayer-lib" />
+            <option value="$PROJECT_DIR$/library/dkplayer-ui" />
+            <option value="$PROJECT_DIR$/library/expandtextview" />
+            <option value="$PROJECT_DIR$/library/irecyclerview" />
+            <option value="$PROJECT_DIR$/library/material-intro-screen" />
+            <option value="$PROJECT_DIR$/library/openingstartanimation" />
+            <option value="$PROJECT_DIR$/library/photoPicker" />
+            <option value="$PROJECT_DIR$/library/provider7" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
