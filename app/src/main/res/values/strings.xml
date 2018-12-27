@@ -28,6 +28,10 @@
     <string name="action_sort">排序</string>
     <string name="comment_of_book">--评论</string>
     <string name="no_more">没有更多了</string>
+    <!--美女-->
+    <string name="girl">妹纸</string>
+    <string name="set_wallpaper">设为壁纸</string>
+    <string name="photo">图片</string>
 
     <!-- 共享过度动画 -->
     <string name="transition_photos">transition_animation_news_photos</string>

@@ -10,6 +10,7 @@ public class AppConstant {
 
     public static final String BOOK_TYPE="book_type";//图书类型
     public static final String VIDEO_TYPE="video_type";//视频类型
+    public static final String PHOTO_DETAIL="photo_detail";//图片详情
 
     public static final String BOOK_LIST_TO_TOP="book_list_to_top";//回到顶部
 

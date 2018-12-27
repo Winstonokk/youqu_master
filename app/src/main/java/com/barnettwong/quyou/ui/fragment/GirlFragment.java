@@ -16,6 +16,7 @@ import com.barnettwong.quyou.bean.girl.PhotoGirl;
 import com.barnettwong.quyou.mvp.contract.PhotoListContract;
 import com.barnettwong.quyou.mvp.model.PhotosListModel;
 import com.barnettwong.quyou.mvp.presenter.PhotosListPresenter;
+import com.barnettwong.quyou.ui.activity.PhotosDetailActivity;
 import com.barnettwong.quyou.ui.widght.RatioImageView;
 import com.barnettwong.quyou.util.SpacesItemDecoration;
 import com.bumptech.glide.Glide;
@@ -75,7 +76,7 @@ public class GirlFragment extends BaseFragment<PhotosListPresenter, PhotosListMo
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-//                        PhotosDetailActivity.startAction(mContext,photoGirl.getUrl());
+                        PhotosDetailActivity.startAction(mContext,photoGirl.getUrl());
                     }
                 });
             }
