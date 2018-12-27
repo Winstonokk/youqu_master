@@ -33,6 +33,15 @@ android {
             buildConfigField "boolean", "USE_CANARY", "true"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            //apk命名
+            android.applicationVariants.all {
+                variant ->
+                    variant.outputs.all {
+                        //这里修改apk文件名
+                        outputFileName = "youqu-v${defaultConfig.versionName}.apk"
+                    }
+            }
         }
 
         release {
@@ -56,19 +65,19 @@ android {
         disable "ResourceType"
         abortOnError false
     }
-
-    /*配置渠道*/
-    productFlavors {
-        yingyongbao {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyongbao"]
-        }
-        wandoujia {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
-        }
-        xiaomi {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
-        }
-    }
+//
+//    /*配置渠道*/
+//    productFlavors {
+//        yingyongbao {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "kuan"]
+//        }
+//        wandoujia {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+//        }
+//        xiaomi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+//        }
+//    }
 
 }
 

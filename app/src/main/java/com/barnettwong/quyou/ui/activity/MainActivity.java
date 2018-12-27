@@ -1,5 +1,6 @@
 package com.barnettwong.quyou.ui.activity;
 
+import android.Manifest;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 
 import com.barnettwong.quyou.R;
 import com.barnettwong.quyou.app.AppConstant;
+import com.barnettwong.quyou.app.MyApplication;
 import com.barnettwong.quyou.bean.TabEntity;
 import com.barnettwong.quyou.ui.fragment.GirlFragment;
 import com.barnettwong.quyou.ui.fragment.MineFragment;
@@ -29,6 +31,7 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.jaydenxiao.common.base.BaseActivity;
 import com.jaydenxiao.common.commonutils.LogUtils;
 import com.jaydenxiao.common.daynightmodeutils.ChangeModeController;
+import com.tbruyelle.rxpermissions.RxPermissions;
 import com.umeng.socialize.UMShareAPI;
 
 import java.util.ArrayList;
@@ -86,6 +89,12 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+//        initPermissions();
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         //切换daynight模式要立即变色的页面
         ChangeModeController.getInstance().init(this,R.attr.class);
@@ -94,6 +103,7 @@ public class MainActivity extends BaseActivity {
         initFragment(savedInstanceState);
         tabLayout.measure(0,0);
         tabLayoutHeight=tabLayout.getMeasuredHeight();
+
     }
     /**
      * 初始化tab
@@ -115,6 +125,34 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
+    private void initPermissions() {
+        //同时请求多个权限
+        RxPermissions.getInstance(MainActivity.this)
+                .request(Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.CALL_PHONE,
+                        Manifest.permission.READ_LOGS,
+                        Manifest.permission.SET_DEBUG_APP,
+                        Manifest.permission.SYSTEM_ALERT_WINDOW,
+                        Manifest.permission.GET_ACCOUNTS,
+                        Manifest.permission.WRITE_APN_SETTINGS,
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION)//多个权限用","隔开
+                .subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean aBoolean) {
+                        if (!aBoolean) {
+                            //只要有一个权限禁止，返回false，
+                            //下一次申请只申请没通过申请的权限
+                            finish();
+                        }
+                    }
+                });
+    }
+
     /**
      * 初始化碎片
      */
