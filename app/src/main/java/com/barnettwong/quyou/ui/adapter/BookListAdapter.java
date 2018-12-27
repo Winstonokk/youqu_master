@@ -3,6 +3,7 @@ package com.barnettwong.quyou.ui.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -15,6 +16,7 @@ import com.aspsine.irecyclerview.universaladapter.recyclerview.CommonRecycleView
 import com.barnettwong.quyou.R;
 import com.barnettwong.quyou.bean.book.BookInfoBean;
 import com.barnettwong.quyou.ui.activity.BookDetailActivity;
+import com.blankj.utilcode.util.ImageUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
 import com.jaydenxiao.common.base.BaseActivity;
@@ -45,16 +47,25 @@ public class BookListAdapter extends CommonRecycleViewAdapter<BookInfoBean> {
         helper.getView(R.id.item_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Intent intent=new Intent(mContext,BookDetailActivity.class);
 //                Bundle b = new Bundle();
 //                b.putSerializable(BookInfoBean.serialVersionName, bookInfo);
-//                Bitmap bitmap;
 //                ImageView iv_book_img=helper.getView(R.id.iv_book_img);
-//                GlideBitmapDrawable imageDrawable = (GlideBitmapDrawable) iv_book_img.getDrawable();
-//                if (imageDrawable != null) {
-//                    bitmap = imageDrawable.getBitmap();
-//                    b.putParcelable("book_img", bitmap);
+//                Bitmap bmp =ImageUtils.drawable2Bitmap(iv_book_img.getDrawable());
+//                if (bmp != null) {
+//                    b.putParcelable("book_img", bmp);
 //                }
-//                startActivity(BookDetailActivity.class,b);
+//                intent.putExtras(b);
+//                mContext.startActivity(intent);
+
+                Bundle b = new Bundle();
+                b.putSerializable(BookInfoBean.serialVersionName, bookInfo);
+                ImageView iv_book_img=helper.getView(R.id.iv_book_img);
+                Bitmap bmp =ImageUtils.drawable2Bitmap(iv_book_img.getDrawable());
+                if (bmp != null) {
+                    b.putParcelable("book_img", bmp);
+                }
+                BookDetailActivity.startAction(mContext,iv_book_img,b);
             }
         });
     }

@@ -12,7 +12,7 @@
         app:loadMoreEnabled="true"
         android:background="?attr/dayNightBackground"
         app:dayNightBackgroundAttr="dayNightBackground"
-        app:refreshHeaderLayout="@layout/layout_irecyclerview_refresh_header"
+        app:refreshHeaderLayout="@layout/layout_irecyclerview_classic_refresh_header"
         app:refreshEnabled="true"
         />
     <com.jaydenxiao.common.commonwidget.LoadingTip

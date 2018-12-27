@@ -1,22 +1,20 @@
 package com.barnettwong.quyou.bean.book;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wang on 2018/12/25 16:39
+ * Created by wang on 2018/12/27 09:56
  */
-public class BookListData implements Serializable {
+public class BookReviewsData {
     private int count;
     private int start;
     private int total;
-    protected List<BookInfoBean> books;
+    private List<BookReviewBean> reviews;
 
-    public BookListData() {
-        this.books=new ArrayList<>();
+    public BookReviewsData() {
+        this.reviews = new ArrayList<>();
     }
-
     public int getCount() {
         return count;
     }
@@ -41,11 +39,11 @@ public class BookListData implements Serializable {
         this.total = total;
     }
 
-    public List<BookInfoBean> getBooks() {
-        return books;
+    public List<BookReviewBean> getReviews() {
+        return reviews;
     }
 
-    public void setBooks(List<BookInfoBean> books) {
-        this.books = books;
+    public void setReviews(List<BookReviewBean> reviews) {
+        this.reviews = reviews;
     }
 }

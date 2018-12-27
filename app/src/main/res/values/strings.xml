@@ -27,6 +27,7 @@
     <string name="share_dialog_title">分享</string>
     <string name="action_sort">排序</string>
     <string name="comment_of_book">--评论</string>
+    <string name="no_more">没有更多了</string>
 
     <!-- 共享过度动画 -->
     <string name="transition_photos">transition_animation_news_photos</string>

@@ -18,5 +18,11 @@
     <!--引导页 end-->
 
     <color name="book_title_mask">#80000000</color>
+
+    <!--swipeRefreshLayout color-->
+    <color name="recycler_color1">#bc9191</color>
+    <color name="recycler_color2">#edd36a</color>
+    <color name="recycler_color3">#82c1f9</color>
+    <color name="recycler_color4">#68d661</color>
     
 </resources>

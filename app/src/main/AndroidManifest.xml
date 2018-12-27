@@ -42,6 +42,7 @@
 
         <activity android:name=".ui.activity.BookDetailActivity"/>
         <activity android:name=".ui.activity.AboutUsActivity"/>
+        <activity android:name=".ui.activity.BookMoreReviewActivity"/>
 
         <!--友盟统计配置Appkey与Channel-->
         <!--value的值填写你在友盟后台申请的应用Appkey-->
