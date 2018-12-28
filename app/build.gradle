@@ -27,6 +27,16 @@ android {
 
         }
     }
+
+    signingConfigs {
+        debug {
+            keyAlias 'android.keystore'
+            keyPassword 'android'
+            storeFile file('D:/android/keySign/android.keystore')
+            storePassword 'android'
+        }
+    }
+
     buildTypes {
         debug {
             buildConfigField "boolean", "LOG_DEBUG", "true"

@@ -83,8 +83,8 @@ public class MineFragment extends BaseFragment {
 
                         } else {
                             UMWeb web = new UMWeb(Defaultcontent.url);
-                            web.setTitle("来自分享面板标题");
-                            web.setDescription("来自分享面板内容");
+                            web.setTitle("\"友趣\"的文章");
+                            web.setDescription("没有谁能击垮你，除非你自甘堕落。不拼一把，你怎么知道自己是人物还是废物！比你差的人没放弃，比你好的人仍在努力，你有什么资格说你无能为力！");
                             web.setThumb(new UMImage(getActivity(), R.mipmap.app_icon));
                             new ShareAction(getActivity()).withMedia(web)
                                     .setPlatform(share_media)
@@ -121,7 +121,7 @@ public class MineFragment extends BaseFragment {
         public void onResult(SHARE_MEDIA platform) {
 
             if (platform.name().equals("WEIXIN_FAVORITE")) {
-                ToastUtils.showShort(platform + " 收藏成功啦");
+                ToastUtils.showShort(platform.getName() + " 收藏成功啦");
             } else {
                 if (platform != SHARE_MEDIA.MORE && platform != SHARE_MEDIA.SMS
                         && platform != SHARE_MEDIA.EMAIL
@@ -135,7 +135,7 @@ public class MineFragment extends BaseFragment {
                         && platform != SHARE_MEDIA.GOOGLEPLUS
                         && platform != SHARE_MEDIA.YNOTE
                         && platform != SHARE_MEDIA.EVERNOTE) {
-                    ToastUtils.showShort(platform + " 分享成功啦");
+                    ToastUtils.showShort(platform.getName() + " 分享成功啦");
                 }
             }
         }
@@ -153,14 +153,14 @@ public class MineFragment extends BaseFragment {
                     && platform != SHARE_MEDIA.GOOGLEPLUS
                     && platform != SHARE_MEDIA.YNOTE
                     && platform != SHARE_MEDIA.EVERNOTE) {
-                    ToastUtils.showShort(platform + " 分享失败啦");
+                    ToastUtils.showShort(platform.getName() + " 分享失败啦");
             }
 
         }
 
         @Override
         public void onCancel(SHARE_MEDIA platform) {
-            ToastUtils.showShort(platform + " 分享取消了");
+            ToastUtils.showShort(platform.getName() + " 分享取消了");
         }
     }
 
