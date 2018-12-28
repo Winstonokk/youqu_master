@@ -88,7 +88,7 @@ app下载体验：
 -------
 
 扫码下载：(第三方分享目前集成了QQ，微信和微博暂未申请appkey,请自行申请配置体验)
-![image](https://github.com/wangfeng19930909/youqu_master/blob/master/screenshot/apk_code.jpg)
+![image](https://github.com/wangfeng19930909/youqu_master/blob/master/screenshot/apk_code.png)
 下载链接：https://www.pgyer.com/sLf3
  
 
