@@ -84,6 +84,16 @@ com.github.jetradarmobile:android-snowfall:1.2.0
 
 本人会坚持在这个项目上实践最新的技术，也会争取拓展更多的阅读内容，欢迎各位关注！ 注意：本项目还在测试阶段，发现 bug 或有好的建议欢迎issue、email(wangfengkxhp@foxmail.com),如果感觉对你有帮助也欢迎点个 star、fork，本项目仅做学习交流使用，请勿用于其他用途,如若发现资源存在侵权，请第一时间联系删除。
 
+app下载体验：
+-------
+
+扫码下载：(第三方分享目前集成了QQ，微信和微博暂未申请appkey,请自行申请配置体验)
+![image](https://github.com/wangfeng19930909/youqu_master/blob/master/screenshot/apk_code.jpg)
+下载链接：https://www.pgyer.com/sLf3
+ 
+
+
+
 MIT License
 =================================== 
 Copyright 2017-2018, wangfeng19930909
