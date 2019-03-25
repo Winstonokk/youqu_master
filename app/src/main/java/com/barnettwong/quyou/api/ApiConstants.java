@@ -20,7 +20,7 @@ public class ApiConstants {
     /**
      * 豆瓣读书host
      */
-    public static final String DOUBAN_HOST = "https://api.douban.com/v2/";
+    public static final String DOUBAN_HOST = "https://douban.uieee.com/v2/";
 
     /**
      * gank图片
